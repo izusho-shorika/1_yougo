@@ -19,6 +19,24 @@ button:disabled{opacity:.6;cursor:not-allowed}
 .choice.wrong{border-color:#ff6a69;background:#feeeef}
 .small{font-size:12px;color:#555}
 .debug{background:#eef5ff;border:1px solid #bdd2ff;color:#0b3d91;padding:6px 8px;border-radius:8px;font-size:12px;margin-bottom:12px;display:none;white-space:pre-wrap}
+/* ── スマホ時の余白強化 ───────────────────────────── */
+@media (max-width: 640px) {
+  /* 統計行の下に余白を追加 */
+  .panel .stat:last-of-type {
+    margin-right: 0; /* 最後のstatの右マージンをリセット */
+  }
+  /* セレクトとボタンに上マージンを付与して“行間”を開ける */
+  #cat,
+  #restart {
+    display: inline-block;
+    margin-top: 12px;     /* ← ここで“少し開ける” */
+  }
+}
+
+/* 画面幅を問わず、ほんの少しだけ全体にゆとりを足したい場合は下も有効化 */
+/*
+#cat, #restart { margin-top: 8px; }
+*/
 </style>
 </head><body>
 <header><h1>全商 情報処理1級 用語クイズ（毎回ランダム）</h1></header>
@@ -38,7 +56,6 @@ button:disabled{opacity:.6;cursor:not-allowed}
   </div>
   <div id="host"></div>
 </div>
-
 <script>
 // ===== データ（必要に応じて増減可・各カテゴリ5語以上を推奨） =====
 var DATA=[
